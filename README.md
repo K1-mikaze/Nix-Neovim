@@ -1,6 +1,6 @@
 # Neovim-Nix
 
-## without flakes 
+## With flakes 
 
 ```nix
 ```nix
