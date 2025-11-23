@@ -1,4 +1,4 @@
-# Neovim-Nix
+# Neovim Wrapper with Nix
 
 set as default nvim using **nix profile install .***
 
