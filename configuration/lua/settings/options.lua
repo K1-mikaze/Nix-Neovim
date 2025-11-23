@@ -6,6 +6,7 @@ vim.opt.scrolloff = 999
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.cmd('colorscheme unokai')
+vim.cmd('set cursorline')
 vim.cmd('set wildmenu')
 vim.cmd('let g:netrw_liststyle=3')
 vim.cmd('set path+=**')
@@ -15,14 +16,14 @@ local config = {
   update_in_insert = true,
   underline = true,
   severity_sort = true,
-  float = {
-    focusable = false,
-    style = "minimal",
-    border = "rounded",
-    source = "always",
-    header = "",
-    prefix = "",
-  },
+  -- float = {
+  --   focusable = false,
+  --   style = "minimal",
+  --   border = "rounded",
+  --   source = "always",
+  --   header = "",
+  --   prefix = "",
+  -- },
 }
 
 vim.diagnostic.config(config)

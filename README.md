@@ -13,7 +13,11 @@ nix build .
 
 ## Without flakes 
 
-Remove the input of the file neovim.nix called configuration and add the function the lines below
+```nix
+To build it use `nix-build .` 
+``` 
+
+Remove the input of the file neovim.nix called configuration and replace the function the lines below inside the neovim.nix file
 ```nix 
 neovim.nix 
 {
@@ -31,7 +35,5 @@ neovim.nix
     mkdir -p $out
     cp -r ${./configuration}/* $out/
   '';
-
-
 ``` 
 ```
