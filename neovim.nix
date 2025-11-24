@@ -17,11 +17,11 @@ let
   packageName = "custom";
 
   startPlugins = [
-
     vimPlugins.rustaceanvim
     vimPlugins.markdown-preview-nvim
     vimPlugins.luasnip
     vimPlugins.friendly-snippets
+    vimPlugins.which-key-nvim
     vimPlugins.telescope-nvim
     vimPlugins.plenary-nvim
     vimPlugins.gitsigns-nvim
