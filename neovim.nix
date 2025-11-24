@@ -22,7 +22,6 @@ let
     vimPlugins.markdown-preview-nvim
     vimPlugins.luasnip
     vimPlugins.friendly-snippets
-    vimPlugins.nvim-autopairs
     vimPlugins.telescope-nvim
     vimPlugins.plenary-nvim
     vimPlugins.gitsigns-nvim

@@ -4,7 +4,6 @@ function M.setup()
   -- Load all configuration parts
   require('plugins.gitsigns')
   require('plugins.cmp')
-  require('plugins.autopairs')
   require('plugins.luasnip')
   require('plugins.markdown-preview')
 

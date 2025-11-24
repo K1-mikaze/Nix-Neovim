@@ -26,10 +26,20 @@ keymap('n', '<leader>cD',  "<cmd>:lua require('telescope.builtin').lsp_type_defi
 keymap('n', '<leader>glb',  "<cmd>:Gitsigns toggle_current_line_blame<CR>", { desc = 'Toggle Line blames' })
 keymap('n', '<leader>gb',  "<cmd>:Git blame<CR>", { desc = 'Open Git Blames' })
 
+-- nvim-autopairs Replacement
+
+keymap('i', "'",  "''<left>")
+keymap('i', '"',  '""<left>')
+keymap('i', '(',  '()<left>')
+keymap('i', '{',  '{}<left>')
+keymap('i', '[',  '[]<left>')
+keymap('i', '/*',  '/**/<left><left>')
+
 -- Others
 keymap('n', '<C-s>', ':w<CR>', { desc = 'Save File' })
 keymap('n', '<M-1>', ':Ex<CR>', { desc = 'Open Explorer' })
 keymap('n', '<leader>olae', '<cmd>setlocal spell spelllang=en<CR>', { desc = 'Active  Language Spell Checker to English' })
 keymap('n', '<leader>olas', '<cmd>setlocal spell spelllang=es<CR>', { desc = 'Active  Language Spell Checker to Spanish' })
+keymap('v', '<leader>r', "\"hy:%s/<C-r>h//g<left><left>",{ desc = "rename a variable or whatever"})
 
 
