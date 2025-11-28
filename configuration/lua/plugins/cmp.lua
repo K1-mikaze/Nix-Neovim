@@ -1,4 +1,4 @@
-vim.cmd("hi Pmenu guibg=#282923")
+vim.cmd("hi Pmenu guibg=#1e1e2e")
 local cmp = require'cmp'
 local lspkind = require('lspkind')
 cmp.setup({

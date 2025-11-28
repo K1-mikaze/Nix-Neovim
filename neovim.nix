@@ -33,6 +33,7 @@ let
     vimPlugins.cmp-path
     vimPlugins.lspkind-nvim
     vimPlugins.nvim-jdtls
+    vimPlugins.catppuccin-nvim
     configuration       
   ];
 

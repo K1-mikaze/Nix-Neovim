@@ -8,7 +8,7 @@ vim.opt.wrap = false
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
-vim.cmd('colorscheme unokai')
+vim.cmd('colorscheme catppuccin-mocha')
 vim.cmd('set cursorline')
 vim.cmd('set wildmenu')
 vim.cmd('let g:netrw_liststyle=3')
