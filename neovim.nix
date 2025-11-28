@@ -34,6 +34,8 @@ let
     vimPlugins.lspkind-nvim
     vimPlugins.nvim-jdtls
     vimPlugins.catppuccin-nvim
+    vimPlugins.obsidian-nvim
+    vimPlugins.tmux-nvim
     configuration       
   ];
 

@@ -35,6 +35,10 @@ keymap('i', '[',  '[]<left>')
 keymap('i', '/*',  '/**/<left><left>')
 
 
+-- Obsidian
+keymap("n", "<leader>nfa", "<cmd>Obsidian search<CR>", { desc = "Search notes" })
+keymap("n", "<leader>nff", "<cmd>Obsidian quick_switch<CR>", { desc = "Quick switch notes" })
+
 
 -- Others
 keymap('n', '<C-s>', ':w<CR>', { desc = 'Save File' })

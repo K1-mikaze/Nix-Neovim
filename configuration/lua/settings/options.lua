@@ -10,9 +10,11 @@ vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.cmd('colorscheme catppuccin-mocha')
 vim.cmd('set cursorline')
+vim.cmd('set conceallevel=2')
 vim.cmd('set wildmenu')
 vim.cmd('let g:netrw_liststyle=3')
 vim.cmd('set path+=**')
+vim.cmd('set clipboard=unnamedplus')
 
 local config = {
   virtual_text = true,

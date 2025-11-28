@@ -30,17 +30,9 @@ performance = {
   window = {
 completion = {
       border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      -- winhighlight = "Normal:CmpNormal",
-      -- scrollbar = true,
-      -- max_width = 80,
-      -- max_height = 20,
     },
  documentation = {
-      -- winhighlight = "Normal:CmpNormal",
       border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      -- scrollbar = true,
-      -- max_width = 80,
-      -- max_height = 15,
     },
   },
   mapping = cmp.mapping.preset.insert({
@@ -56,6 +48,7 @@ completion = {
     { name = 'nvim_lsp', max_item_count = 20 },
     { name = 'luasnip' },
     { name = 'path',max_item_count = 5},
+    { name = 'obsidian'},
   })
 })
 
