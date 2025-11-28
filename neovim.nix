@@ -36,6 +36,8 @@ let
     vimPlugins.catppuccin-nvim
     vimPlugins.obsidian-nvim
     vimPlugins.tmux-nvim
+    vimPlugins.nvim-dap
+    vimPlugins.nvim-dap-ui
     configuration       
   ];
 

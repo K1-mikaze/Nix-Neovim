@@ -14,6 +14,9 @@ vim.lsp.config('*', {
   root_markers = { '.git' },
 })
   end
+
+require('dapui').setup({})
+
 M.setup()
 
 return M

@@ -19,13 +19,20 @@ keymap('n', '<leader>cq',  "<cmd>:lua require'telescope.builtin'.quickfix(requir
 keymap('n', '<leader>cs',  "<cmd>:lua vim.diagnostic.open_float()<CR>", { desc = 'Show whole Code warning/error/suggestion' })
 keymap('n', '<leader>cd',  "<cmd>:lua require('telescope.builtin').lsp_definitions(require('telescope.themes').get_cursor({}))<CR>", { desc = 'Code Definitions' })
 keymap('n', '<leader>ci',  "<cmd>:lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_cursor({}))<CR>", { desc = 'Code Definitions' })
-keymap('n', '<leader>cD',  "<cmd>:lua require('telescope.builtin').lsp_type_definitions(require('telescope.themes').get_dropdown({}))<CR>", { desc = 'Code Type Definitions' })
+
+-- Debug
+keymap('n', '<F5>', function() require('dap').continue() end)
+keymap('n', '<F10>', function() require('dap').step_over() end)
+keymap('n', '<F11>', function() require('dap').step_into() end)
+keymap('n', '<F12>', function() require('dap').step_out() end)
+keymap('n', '<leader>cb', function() require('dap').toggle_breakpoint() end)
+keymap('n', '<leader>cD', function() require('dapui').toggle() end)
+
 
 -- Git
 keymap('n', '<leader>glb',  "<cmd>:Gitsigns toggle_current_line_blame<CR>", { desc = 'Toggle Line blames' })
 keymap('n', '<leader>gb',  "<cmd>:Git blame<CR>", { desc = 'Open Git Blames' })
 
--- nvim-autopairs Replacement
 
 keymap('i', "'",  "''<left>")
 keymap('i', '"',  '""<left>')

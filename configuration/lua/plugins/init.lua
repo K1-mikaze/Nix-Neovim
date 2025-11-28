@@ -8,7 +8,6 @@ function M.setup()
   require('plugins.markdown-preview')
   require('plugins.obsidian')
   require('plugins.tmux')
-
 end
 
 M.setup()
