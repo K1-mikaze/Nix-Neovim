@@ -45,6 +45,7 @@ keymap('i', '/*',  '/**/<left><left>')
 -- Obsidian
 keymap("n", "<leader>nfa", "<cmd>Obsidian search<CR>", { desc = "Search notes" })
 keymap("n", "<leader>nff", "<cmd>Obsidian quick_switch<CR>", { desc = "Quick switch notes" })
+keymap("n", "<leader>nft", "<cmd>Obsidian tags<CR>", { desc = "Search about all the Tags available" })
 
 
 -- Others
