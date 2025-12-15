@@ -1,7 +1,11 @@
 vim.lsp.config('nixd', {
   cmd = { 'nixd'  },
   filetypes = { 'nix'},
+  formatting =  {
+    command = {"alejandra"},
+  },
 })
 
--- Enable Typescript Language Server
 vim.lsp.enable('nixd')
+
+
