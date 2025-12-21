@@ -39,6 +39,8 @@ https://ayats.org/blog/neovim-wrapper
     vimPlugins.nvim-dap-ui
     vimPlugins.conform-nvim
     vimPlugins.nvim-lint
+    vimPlugins.vim-dadbod-ui
+    vimPlugins.vim-dadbod
     configuration
   ];
 
