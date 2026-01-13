@@ -11,6 +11,30 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+
+    LSPs = with pkgs; [
+      typescript-language-server
+      lua-language-server
+      nixd
+      jdt-language-server
+      pyright
+      vscode-css-languageserver
+      marksman
+      rust-analyzer
+    ];
+
+    formatters = with pkgs; [
+      stylua
+      rustfmt
+      prettier
+      alejandra
+      black
+    ];
+
+    programDepenpendencies = with pkgs; [
+      ripgrep
+      lldb
+    ];
   in {
     packages.${system} = {
       default = pkgs.callPackage ./neovim.nix {
@@ -18,6 +42,7 @@
           mkdir -p $out
           cp -r ${./configuration}/* $out
         '';
+        runtimeDependencies = LSPs ++ formatters ++ programDepenpendencies;
       };
     };
 

@@ -12,6 +12,7 @@ https://ayats.org/blog/neovim-wrapper
   runCommandLocal,
   vimPlugins,
   configuration,
+  runtimeDependencies,
 }: let
   packageName = "custom";
 
@@ -41,7 +42,6 @@ https://ayats.org/blog/neovim-wrapper
     vimPlugins.vim-dadbod-ui
     vimPlugins.vim-dadbod
     vimPlugins.lazygit-nvim
-
     configuration
   ];
 
@@ -76,6 +76,7 @@ in
         --add-flags '-u NORC' \
         --add-flags '--cmd' \
         --add-flags "'set packpath^=${packpath} | set runtimepath^=${packpath}'" \
-        --set-default NVIM_APPNAME nvim-custom
+        --set-default NVIM_APPNAME nvim-custom \
+        --prefix PATH : ${lib.makeBinPath runtimeDependencies}
     '';
   }
