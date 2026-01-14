@@ -39,7 +39,6 @@
       lazygit
       git
       jq
-      yazi
     ];
   in {
     packages.${system} = {

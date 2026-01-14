@@ -84,7 +84,7 @@ keymap("n", "<F2>", "<cmd>:LazyGit<CR>", { desc = "Toggle LazyGit UI" })
 keymap("n", "<leader>gb", "<cmd>:Git blame<CR>", { desc = "Open Git Blames" })
 
 -- DataBase
-keymap("n", "<leader>dt", "<cmd>:DBUIToggle<CR>", { desc = "Toggle DBUI Sidebar" })
+keymap("n", "<F3>", "<cmd>:DBUIToggle<CR>", { desc = "Toggle DBUI Sidebar" })
 
 -- Others
 keymap("i", "`", "``<left>")
@@ -97,7 +97,7 @@ keymap("i", "[", "[]<left>")
 keymap("i", "/*", "/**/<left><left>")
 keymap("n", "<C-s>", ":w<CR>", { desc = "Save File" })
 keymap("n", "<Tab>", ":Telescope marks theme=ivy<CR>", { desc = "Open telescope marks" })
-keymap("n", "<F1>", ":Yazi<CR>", { desc = "Open Explorer" })
+keymap("n", "<F1>", ":Neotree toggle right<CR>", { desc = "Open Explorer" })
 keymap(
 	"n",
 	"<leader>olae",

@@ -42,7 +42,7 @@ https://ayats.org/blog/neovim-wrapper
     vimPlugins.vim-dadbod-ui
     vimPlugins.vim-dadbod
     vimPlugins.lazygit-nvim
-    vimPlugins.yazi-nvim
+    vimPlugins.neo-tree-nvim
     configuration
   ];
 
