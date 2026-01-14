@@ -12,7 +12,7 @@ keymap(
 	"<cmd>:lua require'telescope.builtin'.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown({}))<CR>",
 	{ desc = "Live grep in Current file" }
 )
-keymap("n", "<leader>fh", ":Telescope help_tags", { desc = "Fuzzy search Documentation" })
+keymap("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Fuzzy search Documentation" })
 
 -- Lsp
 keymap(
@@ -57,7 +57,6 @@ keymap(
 	"<cmd>:lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_cursor({}))<CR>",
 	{ desc = "Code Definitions" }
 )
-keymap("n", "<leader>cf", "<cmd>:lua vim.lsp.buf.format()<CR>", { desc = "Code Formater" })
 
 -- Debug
 keymap("n", "<F5>", function()
@@ -81,12 +80,11 @@ end)
 
 -- Git
 keymap("n", "<leader>glb", "<cmd>:Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Line blames" })
-keymap("n", "<leader>gg", "<cmd>:LazyGit<CR>", { desc = "Toggle LazyGit UI" })
+keymap("n", "<F2>", "<cmd>:LazyGit<CR>", { desc = "Toggle LazyGit UI" })
 keymap("n", "<leader>gb", "<cmd>:Git blame<CR>", { desc = "Open Git Blames" })
 
-
 -- DataBase
-keymap("n", "<leader>dt", "<cmd>:DBUIToggle<CR>", { desc = "Toggle DBUI Sidebar"})
+keymap("n", "<leader>dt", "<cmd>:DBUIToggle<CR>", { desc = "Toggle DBUI Sidebar" })
 
 -- Others
 keymap("i", "`", "``<left>")
@@ -99,7 +97,7 @@ keymap("i", "[", "[]<left>")
 keymap("i", "/*", "/**/<left><left>")
 keymap("n", "<C-s>", ":w<CR>", { desc = "Save File" })
 keymap("n", "<Tab>", ":Telescope marks theme=ivy<CR>", { desc = "Open telescope marks" })
-keymap("n", "<F1>", ":Vex!<CR>", { desc = "Open Explorer" })
+keymap("n", "<F1>", ":Yazi<CR>", { desc = "Open Explorer" })
 keymap(
 	"n",
 	"<leader>olae",
@@ -112,4 +110,5 @@ keymap(
 	"<cmd>setlocal spell spelllang=es<CR>",
 	{ desc = "Active  Language Spell Checker to Spanish" }
 )
-keymap("v", "<leader>r", '"hy:%s/<C-r>h//g<left><left>', { desc = "rename a variable or whatever" })
+keymap("v", "<leader>r", '"hy:%s/<C-r>h//gc<left><left>', { desc = "rename a variable or whatever" })
+keymap("v", "<leader>hg", '"hy:!curl <C-r>h<CR>', { desc = "use Curl Get method" })

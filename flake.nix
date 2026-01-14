@@ -21,6 +21,8 @@
       vscode-css-languageserver
       marksman
       rust-analyzer
+      bash-language-server
+      yaml-language-server
     ];
 
     formatters = with pkgs; [
@@ -31,9 +33,13 @@
       black
     ];
 
-    programDepenpendencies = with pkgs; [
+    pluginDependencies = with pkgs; [
       ripgrep
       lldb
+      lazygit
+      git
+      jq
+      yazi
     ];
   in {
     packages.${system} = {
@@ -42,7 +48,7 @@
           mkdir -p $out
           cp -r ${./configuration}/* $out
         '';
-        runtimeDependencies = LSPs ++ formatters ++ programDepenpendencies;
+        runtimeDependencies = LSPs ++ formatters ++ pluginDependencies;
       };
     };
 
