@@ -15,14 +15,14 @@
     LSPs = with pkgs; [
       typescript-language-server
       lua-language-server
-      nixd
-      jdt-language-server
-      pyright
       vscode-css-languageserver
-      marksman
-      rust-analyzer
+      jdt-language-server
       bash-language-server
       yaml-language-server
+      nixd
+      pyright
+      marksman
+      rust-analyzer
     ];
 
     formatters = with pkgs; [
@@ -37,6 +37,7 @@
       ripgrep
       lldb
       lazygit
+      manix
       git
       jq
     ];
@@ -51,22 +52,9 @@
       };
     };
 
-    apps.${system} = {
-      default = {
-        type = "app";
-        program = "${self.packages.${system}.default}/bin/nvim";
-      };
-    };
-
-    devShells.${system}.default = pkgs.mkShell {
-      buildInputs = [
-        self.packages.${system}.default
-        pkgs.lua-language-server
-        pkgs.nixd
-        pkgs.alejandra
-        pkgs.stylua
-        pkgs.nix
-      ];
+    apps.${system}.default = {
+      type = "app";
+      program = "${self.packages.${system}.default}/bin/nvim";
     };
 
     meta = {
@@ -77,8 +65,6 @@
           - nix build .
           - nix develop
       '';
-      # license = pkgs.lib.licenses.mit;  # Optional: add license
-      # maintainers = [ /* your info */ ]; # Optional: add maintainers
     };
   };
 }

@@ -13,6 +13,7 @@ keymap(
 	{ desc = "Live grep in Current file" }
 )
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Fuzzy search Documentation" })
+keymap("n", "<leader>fn", ":Telescope manix<CR>", { desc = "Fuzzy search Documentation of Nix" })
 
 -- Lsp
 keymap(
@@ -110,5 +111,5 @@ keymap(
 	"<cmd>setlocal spell spelllang=es<CR>",
 	{ desc = "Active  Language Spell Checker to Spanish" }
 )
-keymap("v", "<leader>r", '"hy:%s/<C-r>h//gc<left><left>', { desc = "rename a variable or whatever" })
+keymap("v", "<leader>r", '"hy:%s/<C-r>h//gc<left><left><left>', { desc = "rename a variable or whatever" })
 keymap("v", "<leader>hg", '"hy:!curl <C-r>h<CR>', { desc = "use Curl Get method" })

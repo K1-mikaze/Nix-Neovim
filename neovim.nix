@@ -1,9 +1,3 @@
-/*
-=== NeoVim Wrapper ===
-To build this package use:
-- nix-build
-https://ayats.org/blog/neovim-wrapper
-*/
 {
   lib,
   symlinkJoin,
@@ -33,7 +27,7 @@ https://ayats.org/blog/neovim-wrapper
     vimPlugins.cmp-path
     vimPlugins.lspkind-nvim
     vimPlugins.nvim-jdtls
-    vimPlugins.catppuccin-nvim
+    vimPlugins.rose-pine
     vimPlugins.tmux-nvim
     vimPlugins.nvim-dap
     vimPlugins.nvim-dap-ui
@@ -43,6 +37,8 @@ https://ayats.org/blog/neovim-wrapper
     vimPlugins.vim-dadbod
     vimPlugins.lazygit-nvim
     vimPlugins.neo-tree-nvim
+    vimPlugins.telescope-manix
+    vimPlugins.nvim-web-devicons
     configuration
   ];
 
