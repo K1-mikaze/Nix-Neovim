@@ -29,16 +29,22 @@
       stylua
       rustfmt
       prettier
+      biome
       alejandra
       black
     ];
 
+    databaseClients = with pkgs; [
+      postgresql
+      mongosh
+    ];
+
     pluginDependencies = with pkgs; [
       ripgrep
+      git
       lldb
       lazygit
       manix
-      git
       jq
     ];
   in {
@@ -48,7 +54,7 @@
           mkdir -p $out
           cp -r ${./configuration}/* $out
         '';
-        runtimeDependencies = LSPs ++ formatters ++ pluginDependencies;
+        runtimeDependencies = LSPs ++ formatters ++ databaseClients ++ pluginDependencies;
       };
     };
 

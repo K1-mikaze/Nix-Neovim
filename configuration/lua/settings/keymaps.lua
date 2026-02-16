@@ -13,7 +13,8 @@ keymap(
 	{ desc = "Live grep in Current file" }
 )
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Fuzzy search Documentation" })
-keymap("n", "<leader>fn", ":Telescope manix<CR>", { desc = "Fuzzy search Documentation of Nix" })
+
+keymap("n", "<leader>dn", ":Telescope manix<CR>", { desc = "Fuzzy search Documentation of Nix" })
 
 -- Lsp
 keymap(
@@ -24,7 +25,7 @@ keymap(
 )
 keymap(
 	"n",
-	"<leader>cd",
+	"<leader>cf",
 	"<cmd>:lua require'telescope.builtin'.treesitter(require('telescope.themes').get_ivy({}))<CR>",
 	{ desc = "Find Functions,Variables and more" }
 )

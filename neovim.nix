@@ -19,6 +19,7 @@
     vimPlugins.telescope-nvim
     vimPlugins.plenary-nvim
     vimPlugins.gitsigns-nvim
+    vimPlugins.render-markdown-nvim
     vimPlugins.nvim-treesitter.withAllGrammars
     vimPlugins.nvim-lspconfig
     vimPlugins.nvim-cmp
@@ -27,7 +28,7 @@
     vimPlugins.cmp-path
     vimPlugins.lspkind-nvim
     vimPlugins.nvim-jdtls
-    vimPlugins.rose-pine
+    vimPlugins.catppuccin-nvim
     vimPlugins.tmux-nvim
     vimPlugins.nvim-dap
     vimPlugins.nvim-dap-ui
