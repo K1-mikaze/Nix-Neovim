@@ -36,10 +36,10 @@ cmp.setup({
 		},
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-u>"] = cmp.mapping.scroll_docs(-4),
+		["<C-d>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.abort(),
+		["<Esc>"] = cmp.mapping.abort(),
 		["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
@@ -49,42 +49,25 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "path" },
 		{ name = "buffer" },
+		{ name = "vim-dadbod-completion" },
 		{ name = "dadbod_grip" },
 	}),
-})
-
--- Set DB connection for SQL buffers (runs on BufEnter, not just FileType)
-vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
-	pattern = { "*.sql", "*.mysql", "*.plsql", "sql", "mysql", "plsql" },
-	callback = function()
-		-- Read DATABASE_URL from os.getenv directly (not vim.env)
-		local db_url = os.getenv("DATABASE_URL")
-		if db_url and db_url ~= "" then
-			vim.g.db = db_url
-			vim.b.db = db_url
-		end
-	end,
 })
 
 -- Filetype-specific setup for SQL
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "sql", "mysql", "plsql" },
 	callback = function()
-		-- Override sources for SQL buffers to prioritize dadbod_grip
+		-- Keep ALL sources + add vim-dadbod-completion (don't replace!)
 		cmp.setup.buffer({
 			sources = {
+				{ name = "vim-dadbod-completion" },
 				{ name = "dadbod_grip" },
+				{ name = "luasnip" },
+				{ name = "nvim_lsp" },
+				{ name = "path" },
+				{ name = "buffer" },
 			},
 		})
 	end,
 })
-
--- Manual command to set database connection for current buffer
-vim.api.nvim_create_user_command("SetDB", function(opts)
-	local url = opts.args
-	if url and url ~= "" then
-		vim.b.db = url
-		vim.g.db = url
-		vim.notify("DB connection set to: " .. url, vim.log.levels.INFO)
-	end
-end, { nargs = 1, complete = "file" })

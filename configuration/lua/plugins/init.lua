@@ -4,7 +4,6 @@ function M.setup()
 	-- Load all configuration parts
 	require("plugins.gitsigns")
 	require("plugins.luasnip")
-	require("plugins.cmp")
 	require("plugins.telescope")
 	require("plugins.lazydocker")
 	require("plugins.kulala")
@@ -19,6 +18,7 @@ function M.setup()
 	require("plugins.vimdadbod")
 	require("plugins.dadbod-grip")
 	require("plugins.pi")
+	require("plugins.cmp")
 end
 
 M.setup()

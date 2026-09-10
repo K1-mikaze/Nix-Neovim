@@ -38,9 +38,9 @@ let
     vimPlugins.conform-nvim
     vimPlugins.nvim-lint
     vimPlugins.dadbod-grip-nvim
-    # vimPlugins.vim-dadbod-ui
-    # vimPlugins.vim-dadbod-completion
-    # vimPlugins.vim-dadbod
+    vimPlugins.vim-dadbod-ui
+    vimPlugins.vim-dadbod-completion
+    vimPlugins.vim-dadbod
     # vimPlugins.nvim-schema-surfer
     vimPlugins.dressing-nvim
     vimPlugins.todo-comments-nvim

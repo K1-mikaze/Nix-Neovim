@@ -76,7 +76,7 @@ keymap("n", "<leader>gb", "<cmd>:Git blame<CR>", { desc = "Open Git Blames", sil
 local container_engine = vim.fn.executable("podman") == 1 and "podman" or "docker"
 keymap(
 	"n",
-	"<F2>",
+	"<F3>",
 	"<cmd>:lua LazyDocker.toggle({engine = '" .. container_engine .. "'})<CR>",
 	{ desc = "Toggle LazyDocker (" .. container_engine .. ")", silent = true }
 )
@@ -91,5 +91,6 @@ keymap("n", "<leader>pi", ":PiPing<CR>")
 -- Database
 keymap("n", "<F1>", require("plugins.sidebars").toggle_datagrip, { desc = "Toggle Data Grip Sidebar", silent = true })
 
+keymap("n", "<F2>", require("plugins.sidebars").toggle_dadbod, { desc = "Toggle DadBod UI", silent = true })
+
 keymap("n", "<C-s>", ":w<CR>", { desc = "Save File", silent = true })
-keymap("n", "<Tab>", ":Telescope marks theme=ivy<CR>", { desc = "Open telescope marks", silent = true })

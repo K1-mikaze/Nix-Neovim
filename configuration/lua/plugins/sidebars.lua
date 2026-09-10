@@ -1,7 +1,73 @@
 local M = {}
 
--- DataGrip is a JetBrains IDE and does not expose a Neovim API for state.
--- Detect its window by filetype instead.
+-- Supported database clients for dadbod-grip
+local GRIP_CLIENTS = {
+	"psql",     -- PostgreSQL
+	"mysql",    -- MySQL / MariaDB
+	"sqlite3",  -- SQLite
+	"duckdb",   -- DuckDB
+	"sqlcmd",   -- SQL Server
+}
+
+-- Supported database clients for vim-dadbod
+local DADBOD_CLIENTS = {
+	"bigquery",
+	"clickhouse",
+	"duckdb",
+	"impala",
+	"jq",
+	"mongo",
+	"mysql",
+	"mariadb",
+	"oracle",
+	"osquery",
+	"psql",
+	"presto",
+	"redis",
+	"snowflake",
+	"sqlcmd",
+	"sqlite3",
+}
+
+-- Cache for client availability (set once on module load)
+local grip_client_available = nil
+local dadbod_client_available = nil
+
+local function check_grip_clients()
+	if grip_client_available ~= nil then
+		return grip_client_available
+	end
+	for _, client in ipairs(GRIP_CLIENTS) do
+		if vim.fn.executable(client) == 1 then
+			grip_client_available = true
+			return true
+		end
+	end
+	grip_client_available = false
+	return false
+end
+
+local function check_dadbod_clients()
+	if dadbod_client_available ~= nil then
+		return dadbod_client_available
+	end
+	for _, client in ipairs(DADBOD_CLIENTS) do
+		if vim.fn.executable(client) == 1 then
+			dadbod_client_available = true
+			return true
+		end
+	end
+	dadbod_client_available = false
+	return false
+end
+
+local function notify_no_client(clients)
+	vim.notify(
+		"No supported database client available. Install one of: "
+			.. table.concat(clients, ", "),
+		vim.log.levels.WARN
+	)
+end
 
 local function is_nvim_tree_open()
 	local ok, api = pcall(require, "nvim-tree.api")
@@ -20,12 +86,32 @@ function M.toggle_explorer()
 	end
 end
 
--- Called by <F1>. Toggles DataGrip database sidebar so the sidebars never coexist.
+-- Called by <F1>. Toggles dadbod-grip only if database clients are available.
 function M.toggle_datagrip()
 	if is_nvim_tree_open() then
 		vim.cmd("NvimTreeClose")
 	end
+
+	if not check_grip_clients() then
+		notify_no_client(GRIP_CLIENTS)
+		return
+	end
+
 	vim.cmd("GripToggle")
+end
+
+-- Called by <F2>. Toggles vim-dadbod UI only if database clients are available.
+function M.toggle_dadbod()
+	if is_nvim_tree_open() then
+		vim.cmd("NvimTreeClose")
+	end
+
+	if not check_dadbod_clients() then
+		notify_no_client(DADBOD_CLIENTS)
+		return
+	end
+
+	vim.cmd("DBUIToggle")
 end
 
 return M
