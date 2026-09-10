@@ -1,4 +1,6 @@
 result
 AGENTS.md
 .gitignore
+.env
+.grip/
 

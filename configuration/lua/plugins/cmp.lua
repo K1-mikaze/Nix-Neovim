@@ -1,6 +1,8 @@
 vim.cmd("hi Pmenu guibg=#1e1e2e")
 local cmp = require("cmp")
 local lspkind = require("lspkind")
+
+-- Global setup with all sources
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -8,25 +10,23 @@ cmp.setup({
 		end,
 	},
 	performance = {
-		debounce = 30, -- Reduce debounce time (default: 60)
-		throttle = 30, -- Reduce throttle time (default: 30)
-		fetching_timeout = 100, -- Timeout for async sources (default: 500)
+		debounce = 30,
+		throttle = 30,
+		fetching_timeout = 100,
 	},
 	formatting = {
 		format = lspkind.cmp_format({
-			mode = "symbol_text", -- show only symbol and text
+			mode = "symbol_text",
 			maxwidth = 50,
-			ellipsis_char = "...", -- when popup menu exceed maxwidth
+			ellipsis_char = "...",
 			before = function(entry, vim_item)
 				return vim_item
 			end,
 		}),
 	},
-
 	view = {
 		entries = "custom",
 	},
-
 	window = {
 		completion = {
 			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
@@ -49,17 +49,42 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "path" },
 		{ name = "buffer" },
-		{ name = "vim-dadbod-completion" },
+		{ name = "dadbod_grip" },
 	}),
 })
 
+-- Set DB connection for SQL buffers (runs on BufEnter, not just FileType)
+vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+	pattern = { "*.sql", "*.mysql", "*.plsql", "sql", "mysql", "plsql" },
+	callback = function()
+		-- Read DATABASE_URL from os.getenv directly (not vim.env)
+		local db_url = os.getenv("DATABASE_URL")
+		if db_url and db_url ~= "" then
+			vim.g.db = db_url
+			vim.b.db = db_url
+		end
+	end,
+})
+
+-- Filetype-specific setup for SQL
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "sql", "mysql", "plsql" },
 	callback = function()
+		-- Override sources for SQL buffers to prioritize dadbod_grip
 		cmp.setup.buffer({
 			sources = {
-				{ name = "vim-dadbod-completion" },
+				{ name = "dadbod_grip" },
 			},
 		})
 	end,
 })
+
+-- Manual command to set database connection for current buffer
+vim.api.nvim_create_user_command("SetDB", function(opts)
+	local url = opts.args
+	if url and url ~= "" then
+		vim.b.db = url
+		vim.g.db = url
+		vim.notify("DB connection set to: " .. url, vim.log.levels.INFO)
+	end
+end, { nargs = 1, complete = "file" })

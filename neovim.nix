@@ -37,11 +37,11 @@ let
     vimPlugins.catppuccin-nvim
     vimPlugins.conform-nvim
     vimPlugins.nvim-lint
-    vimPlugins.vim-dadbod-ui
-    vimPlugins.vim-dadbod-completion
-    vimPlugins.vim-dadbod
-    vimPlugins.lazygit-nvim
-    vimPlugins.nvim-web-devicons
+    vimPlugins.dadbod-grip-nvim
+    # vimPlugins.vim-dadbod-ui
+    # vimPlugins.vim-dadbod-completion
+    # vimPlugins.vim-dadbod
+    # vimPlugins.nvim-schema-surfer
     vimPlugins.dressing-nvim
     vimPlugins.todo-comments-nvim
     vimPlugins.nvim-treesitter.withAllGrammars
@@ -49,6 +49,7 @@ let
     vimPlugins.nvim-notify
     vimPlugins.noice-nvim
     vimPlugins.smear-cursor-nvim
+    vimPlugins.lazygit-nvim
     vimPlugins.lazydocker-nvim
     vimPlugins.nvim-tree-lua
     vimPlugins.kulala-nvim

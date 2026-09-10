@@ -1,2 +1,9 @@
-vim.g.db_ui_use_nerdtree_to_toggle = 1
-vim.g.db_ui_win_position = "right"
+-- vim-gdb-ui use nerdtree to toggle
+-- vim.g.db_ui_env_variable_url = "DBUI_URL"
+-- vim.g.db_ui_env_variable_name = "DBUI_NAME"
+
+-- nvim-schema-surfer setup
+-- require("schema-surfer").setup({
+--   db_uri_env = "DBUI_URL",
+--   auto_build = false, -- Skip auto-build to avoid cargo network dependency
+-- })

@@ -3,8 +3,8 @@ local M = {}
 function M.setup()
 	-- Load all configuration parts
 	require("plugins.gitsigns")
-	require("plugins.cmp")
 	require("plugins.luasnip")
+	require("plugins.cmp")
 	require("plugins.telescope")
 	require("plugins.lazydocker")
 	require("plugins.kulala")
@@ -17,6 +17,7 @@ function M.setup()
 	require("plugins.nvim-tree")
 	require("plugins.todo-comments")
 	require("plugins.vimdadbod")
+	require("plugins.dadbod-grip")
 	require("plugins.pi")
 end
 

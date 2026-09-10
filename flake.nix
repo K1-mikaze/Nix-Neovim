@@ -18,6 +18,8 @@
       piNvimOverlay = final: prev: {
         vimPlugins = prev.vimPlugins // {
           pi-nvim = final.callPackage ./derivations/pi-nvim { };
+          dadbod-grip-nvim = final.callPackage ./derivations/dadbod-grip-nvim { };
+          nvim-schema-surfer = final.callPackage ./derivations/nvim-schema-surfer { };
         };
       };
 
@@ -83,6 +85,7 @@
             lsof
             luaPackages.tree-sitter-cli
             luaPackages.jsregexp
+            cargo
           ];
 
           pluginDependencies-minimal = with pkgs; [

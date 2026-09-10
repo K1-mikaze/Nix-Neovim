@@ -89,7 +89,7 @@ keymap("n", "<leader>pb", ":PiSendBuffer<CR>")
 keymap("n", "<leader>pi", ":PiPing<CR>")
 
 -- Database
-keymap("n", "<F1>", require("plugins.sidebars").toggle_dbui, { desc = "Toggle DBUI Sidebar", silent = true })
+keymap("n", "<F1>", require("plugins.sidebars").toggle_datagrip, { desc = "Toggle Data Grip Sidebar", silent = true })
 
 keymap("n", "<C-s>", ":w<CR>", { desc = "Save File", silent = true })
 keymap("n", "<Tab>", ":Telescope marks theme=ivy<CR>", { desc = "Open telescope marks", silent = true })
