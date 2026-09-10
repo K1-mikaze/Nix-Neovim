@@ -2,11 +2,11 @@ local M = {}
 
 -- Supported database clients for dadbod-grip
 local GRIP_CLIENTS = {
-	"psql",     -- PostgreSQL
-	"mysql",    -- MySQL / MariaDB
-	"sqlite3",  -- SQLite
-	"duckdb",   -- DuckDB
-	"sqlcmd",   -- SQL Server
+	"psql", -- PostgreSQL
+	"mysql", -- MySQL / MariaDB
+	"sqlite3", -- SQLite
+	"duckdb", -- DuckDB
+	"sqlcmd", -- SQL Server
 }
 
 -- Supported database clients for vim-dadbod
@@ -15,7 +15,6 @@ local DADBOD_CLIENTS = {
 	"clickhouse",
 	"duckdb",
 	"impala",
-	"jq",
 	"mongo",
 	"mysql",
 	"mariadb",
@@ -63,8 +62,7 @@ end
 
 local function notify_no_client(clients)
 	vim.notify(
-		"No supported database client available. Install one of: "
-			.. table.concat(clients, ", "),
+		"No supported database client available. Install one of: " .. table.concat(clients, ", "),
 		vim.log.levels.WARN
 	)
 end
